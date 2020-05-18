@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">HaPiRri</string>
+    <string name="first_name_hint">First Name</string>
+    <string name="last_name_hint">Last Name</string>
+    <string name="username_hint">Username</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="register_button">Register</string>
+    <string name="already_a_mebmer">Already a mebmer?</string>
+    <string name="already_a_mebmer_login"> Login</string>
+    <string name="age_hint">Age</string>
+</resources>
