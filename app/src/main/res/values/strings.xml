@@ -6,7 +6,12 @@
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="register_button">Register</string>
-    <string name="already_a_mebmer">Already a mebmer?</string>
-    <string name="already_a_mebmer_login"> Login</string>
+    <string name="already_a_member">Already a member?</string>
+    <string name="already_a_member_login"> Login</string>
     <string name="age_hint">Age</string>
+    <string name="keni_llogari">Keni llogari?</string>
+    <string name="alerady_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="log_in">Log in</string>
+    <string name="logo_of_the_app">Logo of the app</string>
 </resources>
