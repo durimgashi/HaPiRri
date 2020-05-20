@@ -23,8 +23,6 @@ public class LoginActivity extends AppCompatActivity {
 
     TextView redirectRegister;
     TextView loggedInAs;
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private DocumentReference userRef = db.document("user/CGRCaTPVhye4jNX6SaFt");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +35,8 @@ public class LoginActivity extends AppCompatActivity {
         redirectRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent);
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
             }
         });
     }
@@ -46,33 +44,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        userRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
-                if (e != null){
-                    Toast.makeText(LoginActivity.this, "Error while loading!", Toast.LENGTH_SHORT).show();
-                    Log.d("ERR", e.toString());
-                }
 
-                assert documentSnapshot != null;
-                loggedInAs.setText(documentSnapshot.getString("email"));
-
-            }
-        });
     }
 
-    public void loadUser(View v){
-        userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                loggedInAs.setText(documentSnapshot.getString("username"));
-            }
-        })
-        .addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                loggedInAs.setText("WRONGGG");
-            }
-        });
-    }
+
 }

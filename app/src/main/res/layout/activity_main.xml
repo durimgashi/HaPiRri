@@ -18,27 +18,54 @@
         tools:ignore="MissingConstraints"
         android:contentDescription="@string/logo_of_the_app" />
 
-    <EditText
-        android:id="@+id/firstNameReg"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/first_name_hint"
-        android:imeOptions="actionNext"
-        android:inputType="text"
+        android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/registerImageView"
-        tools:layout_editor_absoluteX="20dp"
-        android:autofillHints="" />
+        android:id="@+id/test">
 
-    <EditText
-        android:id="@+id/lastNameReg"
-        android:inputType="text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/last_name_hint"
-        android:imeOptions="actionNext"
-        app:layout_constraintTop_toBottomOf="@+id/firstNameReg"
-        tools:layout_editor_absoluteX="16dp"
-        android:autofillHints="" />
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+<!--            <ImageButton-->
+<!--                android:layout_marginEnd="15dp"-->
+<!--                android:id="@+id/profileImageButton"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:background="@color/fui_transparent"-->
+<!--                android:contentDescription="@string/profile_pic"-->
+<!--                android:scaleType="fitStart"-->
+<!--                android:src="@drawable/ic_photo_camera" />-->
+<!--        </LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/firstNameReg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:hint="@string/first_name_hint"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                tools:layout_editor_absoluteX="20dp" />
+
+            <EditText
+                android:id="@+id/lastNameReg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:hint="@string/last_name_hint"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                app:layout_constraintTop_toBottomOf="@+id/firstNameReg"
+                tools:layout_editor_absoluteX="16dp" />
+        </LinearLayout>
+    </LinearLayout>
 
     <EditText
         android:id="@+id/ageReg"
@@ -47,7 +74,7 @@
         android:hint="@string/age_hint"
         android:imeOptions="actionNext"
         android:inputType="number"
-        app:layout_constraintTop_toBottomOf="@+id/lastNameReg"
+        app:layout_constraintTop_toBottomOf="@+id/test"
         tools:layout_editor_absoluteX="24dp"
         android:autofillHints="" />
 
@@ -78,7 +105,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/password_hint"
-        android:imeOptions="actionNext"
+        android:imeOptions="actionDone"
         android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@+id/emailReg"
         tools:layout_editor_absoluteX="20dp"
