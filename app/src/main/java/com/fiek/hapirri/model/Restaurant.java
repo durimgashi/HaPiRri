@@ -11,17 +11,20 @@ public class Restaurant implements Parcelable {
     private List<Item> menu;
     private String image;
     private String description;
+    private List<String> gallery;
 
     public Restaurant() {
     }
 
-    public Restaurant(String restName, String address, List<Item> menu, String image, String description) {
+    public Restaurant(String restName, String address, List<Item> menu, String image, String description, List<String> gallery) {
         this.restName = restName;
         this.address = address;
         this.description = description;
         this.menu = menu;
         this.image = image;
+        this.gallery = gallery;
     }
+
 
     protected Restaurant(Parcel in) {
         restName = in.readString();
@@ -29,6 +32,7 @@ public class Restaurant implements Parcelable {
         menu = in.createTypedArrayList(Item.CREATOR);
         image = in.readString();
         description = in.readString();
+        gallery = in.createStringArrayList();
     }
 
     public static final Creator<Restaurant> CREATOR = new Creator<Restaurant>() {
@@ -83,6 +87,14 @@ public class Restaurant implements Parcelable {
         this.menu = menu;
     }
 
+    public List<String> getGallery() {
+        return gallery;
+    }
+
+    public void setGallery(List<String> gallery) {
+        this.gallery = gallery;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -95,5 +107,6 @@ public class Restaurant implements Parcelable {
         dest.writeTypedList(menu);
         dest.writeString(image);
         dest.writeString(description);
+        dest.writeStringList(gallery);
     }
 }

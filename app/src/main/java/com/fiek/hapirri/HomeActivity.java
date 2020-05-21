@@ -59,9 +59,11 @@ public class HomeActivity extends AppCompatActivity implements RestaurantAdapter
                 intent.putExtra("address", restaurant.getAddress());
                 intent.putExtra("description", restaurant.getDescription());
                 intent.putExtra("image", restaurant.getImage());
-                //not sure about this one
+
                 List<Item> menu = restaurant.getMenu();
-                intent.putParcelableArrayListExtra("menu", (ArrayList<? extends Parcelable>) restaurant.getMenu());
+                intent.putParcelableArrayListExtra("menu", (ArrayList<? extends Parcelable>) menu);
+                List<String> gallery = restaurant.getGallery();
+                intent.putStringArrayListExtra("gallery", (ArrayList<String>) gallery);
                 startActivity(intent);
             }
         });

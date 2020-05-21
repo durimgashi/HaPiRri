@@ -42,25 +42,42 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context=".MenuActivity"
-        tools:showIn="@layout/activity_menu">
+        tools:showIn="@layout/activity_restaurant_view">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-            <TextView
-                android:id="@+id/restDetailsAddress"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="32dp"
-                android:layout_marginStart="16dp"
-                android:textSize="20sp"/>
-
-            <TextView
-                android:id="@+id/restDetailsDescription"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/text_margin"/>
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/restDetailsAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginStart="16dp"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/restDetailsDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/text_margin"/>
+            </LinearLayout>
+            <GridView
+                android:id="@+id/galleryGridView"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginHorizontal="@dimen/text_margin"
+                android:stretchMode="columnWidth"
+                android:horizontalSpacing="10dp"
+                android:verticalSpacing="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="220dp"
+                android:numColumns="3"
+                tools:ignore="AdapterViewChildren"/>
 
             <Button
                 android:layout_width="match_parent"
@@ -70,6 +87,7 @@
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/button"
                 android:textColor="@color/white"/>
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,7 +97,9 @@
                 android:background="@drawable/button"
                 android:textColor="@color/white"/>
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
