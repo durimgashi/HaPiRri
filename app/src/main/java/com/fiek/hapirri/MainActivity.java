@@ -11,50 +11,25 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.fiek.hapirri.model.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.squareup.picasso.Picasso;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-
     TextView redirectLogin;
-
-    public static final String KEY_FIRSTNAME = "firstName";
-    public static final String KEY_LASTNAME = "lastName";
-    public static final String KEY_USERNAME = "username";
-    public static final String KEY_AGE = "age";
-    public static final String KEY_EMAIL = "email";
-    public static final String KEY_PASSWORD = "password";
-
     EditText firstNameReg;
     EditText lastNameReg;
     EditText ageReg;
     EditText usernameReg;
     EditText emailReg;
     EditText passwordReg;
-
-    ImageView registerImageView;
-
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        registerImageView = findViewById(R.id.registerImageView);
-//        Picasso.get().load("https://firebasestorage.googleapis.com/v0/b/hapirri-6970c.appspot.com/o/restImages%2Fgizigrill.jpg?alt=media&token=d9ebe396-904c-4714-bda3-0b8fac763890").into(registerImageView);
 
         firstNameReg = findViewById(R.id.firstNameReg);
         lastNameReg = findViewById(R.id.lastNameReg);
@@ -64,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         passwordReg = findViewById(R.id.passwordReg);
 
         Button registerButton = findViewById(R.id.registerButton);
-
 
         redirectLogin = findViewById(R.id.redirectLogin);
         redirectLogin.setOnClickListener(new View.OnClickListener() {
@@ -85,15 +59,6 @@ public class MainActivity extends AppCompatActivity {
         String password = passwordReg.getText().toString();
 
         User user = new User(firstName, lastName, Integer.parseInt(age), username, email, password);
-
-//        Map<String, Object> user = new HashMap<>();
-
-//        user.put(KEY_FIRSTNAME, firstName);
-//        user.put(KEY_LASTNAME, lastName);
-//        user.put(KEY_AGE, age);
-//        user.put(KEY_USERNAME, username);
-//        user.put(KEY_EMAIL, email);
-//        user.put(KEY_PASSWORD, password);
 
         db.collection("user").document().set(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {

@@ -1,6 +1,7 @@
 package com.fiek.hapirri;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -8,11 +9,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.fiek.hapirri.adapters.GalleryAdapter;
 import com.fiek.hapirri.model.Item;
 import com.google.android.material.appbar.AppBarLayout;
@@ -25,16 +24,25 @@ import java.util.List;
 public class RestaurantViewActivity extends AppCompatActivity {
 
     AppBarLayout restDetailsImage;
-    TextView restDetailsAddress;
-    TextView restDetailsDescription;
+    TextView restDetailsAddress, restDetailsDescription;
     GridView galleryGridView;
+    Button goToMenu;
+    FloatingActionButton fab;
+    String restId, restName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_view);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        restDetailsImage = findViewById(R.id.restDetailsImage);
+        restDetailsAddress = findViewById(R.id.restDetailsAddress);
+        restDetailsDescription = findViewById(R.id.restDetailsDescription);
+        galleryGridView = findViewById(R.id.galleryGridView);
+        goToMenu = findViewById(R.id.goToMenuButton);
+
+
+        fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,15 +51,24 @@ public class RestaurantViewActivity extends AppCompatActivity {
             }
         });
 
-        restDetailsImage = findViewById(R.id.restDetailsImage);
-        restDetailsAddress = findViewById(R.id.restDetailsAddress);
-        restDetailsDescription = findViewById(R.id.restDetailsDescription);
-        galleryGridView = findViewById(R.id.galleryGridView);
-        Bundle extras = getIntent().getExtras();
+        //Gets bundle extras from intent and sets images to gallery
+        manageExtras();
+        goToMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                intent.putExtra("restId", restId);
+                intent.putExtra("restName", restName);
+                startActivity(intent);
+            }
+        });
+    }
 
+    public void manageExtras(){
+        Bundle extras = getIntent().getExtras();
         if (extras != null){
-            int id = extras.getInt("id");
-            String name = extras.getString("restName");
+            restId = extras.getString("id");
+            restName = extras.getString("restName");
             String description = extras.getString("description");
             String address = extras.getString("address");
             String image = extras.getString("image");
@@ -60,18 +77,17 @@ public class RestaurantViewActivity extends AppCompatActivity {
 
             restDetailsDescription.setText(description);
             restDetailsAddress.setText(address);
-
+            GalleryAdapter galleryAdapter = new GalleryAdapter(RestaurantViewActivity.this, gallery);
             if (gallery != null){
-                GalleryAdapter galleryAdapter = new GalleryAdapter(getApplicationContext(), gallery);
                 galleryGridView.setAdapter(galleryAdapter);
             }else{
                 galleryGridView.setVisibility(View.GONE);
             }
-
             setImage(image);
         }
-    }
 
+
+    }
     public void setImage(String image){
         Picasso.get().load(Uri.parse(image)).into(new Target(){
             @Override

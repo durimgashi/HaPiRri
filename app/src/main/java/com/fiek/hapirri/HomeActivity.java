@@ -3,10 +3,11 @@ package com.fiek.hapirri;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 import com.fiek.hapirri.adapters.RestaurantAdapter;
 import com.fiek.hapirri.model.Item;
@@ -16,7 +17,6 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +30,13 @@ public class HomeActivity extends AppCompatActivity implements RestaurantAdapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         setUpRecyclerView();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_menu, menu);
+        return true;
     }
 
     private void setUpRecyclerView(){

@@ -125,4 +125,8 @@
 
     <string name="home_second">Home Second</string>
     <string name="gallery_image_item">Gallery image item</string>
+    <string name="image_popup">Image popup</string>
+    <string name="menu">Menu</string>
+    <string name="search_menu">Search menu</string>
+    <string name="item_image">Item image</string>
 </resources>

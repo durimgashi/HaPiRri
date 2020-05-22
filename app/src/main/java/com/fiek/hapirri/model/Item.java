@@ -6,8 +6,8 @@ import android.os.Parcelable;
 public class Item implements Parcelable {
     private String itemName;
     private String itemType;
-    private Double price;
     private String image;
+    private Double price;
 
     public Item() {
     }

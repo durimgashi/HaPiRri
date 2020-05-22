@@ -80,6 +80,7 @@
                 tools:ignore="AdapterViewChildren"/>
 
             <Button
+                android:id="@+id/goToMenuButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/view_menu"
@@ -89,6 +90,7 @@
                 android:textColor="@color/white"/>
 
             <Button
+                android:id="@+id/goToLocationButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/view_on_maps"
