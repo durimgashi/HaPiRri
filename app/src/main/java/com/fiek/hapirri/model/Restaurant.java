@@ -2,7 +2,7 @@ package com.fiek.hapirri.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
+import com.google.firebase.firestore.GeoPoint;
 import java.util.List;
 
 public class Restaurant implements Parcelable {
@@ -11,28 +11,46 @@ public class Restaurant implements Parcelable {
     private List<Item> menu;
     private String image;
     private String description;
+    private GeoPoint location;
     private List<String> gallery;
+
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+                "restName='" + restName + '\'' +
+                ", address='" + address + '\'' +
+                ", menu=" + menu +
+                ", image='" + image + '\'' +
+                ", description='" + description + '\'' +
+                ", location=" + location +
+                ", gallery=" + gallery +
+                '}';
+    }
 
     public Restaurant() {
     }
 
-    public Restaurant(String restName, String address, List<Item> menu, String image, String description, List<String> gallery) {
+    public Restaurant(String restName, String address, List<Item> menu, String image, String description, List<String> gallery, GeoPoint location) {
         this.restName = restName;
         this.address = address;
         this.description = description;
         this.menu = menu;
         this.image = image;
         this.gallery = gallery;
+        this.location = location;
     }
 
-
-    protected Restaurant(Parcel in) {
+    private Restaurant(Parcel in) {
         restName = in.readString();
         address = in.readString();
         menu = in.createTypedArrayList(Item.CREATOR);
         image = in.readString();
         description = in.readString();
         gallery = in.createStringArrayList();
+        //Yeahhh bitch, MAGNETS
+        Double lat = in.readDouble();
+        Double lng = in.readDouble();
+        location = new GeoPoint(lat, lng);
     }
 
     public static final Creator<Restaurant> CREATOR = new Creator<Restaurant>() {
@@ -46,6 +64,14 @@ public class Restaurant implements Parcelable {
             return new Restaurant[size];
         }
     };
+
+    public GeoPoint getLocation() {
+        return location;
+    }
+
+    public void setLocation(GeoPoint location) {
+        this.location = location;
+    }
 
     public String getDescription() {
         return description;
@@ -108,5 +134,7 @@ public class Restaurant implements Parcelable {
         dest.writeString(image);
         dest.writeString(description);
         dest.writeStringList(gallery);
+        dest.writeDouble(location.getLatitude());
+        dest.writeDouble(location.getLongitude());
     }
 }

@@ -129,4 +129,6 @@
     <string name="menu">Menu</string>
     <string name="search_menu">Search menu</string>
     <string name="item_image">Item image</string>
+    <string name="title_activity_location">Map</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

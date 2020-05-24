@@ -34,7 +34,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
         Item item = itemList.get(position);
         holder.menuItemName.setText(item.getItemName());
         holder.menuItemType.setText(item.getItemType());
-        String price = "$" + item.getPrice().toString();
+        String price = "$" + item.getPrice();
         holder.menuItemPrice.setText(price);
         Picasso.get().load(item.getImage()).into(holder.menuItemImage);
     }

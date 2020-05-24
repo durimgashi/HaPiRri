@@ -7,28 +7,29 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.fiek.hapirri.adapters.GalleryAdapter;
-import com.fiek.hapirri.model.Item;
+import com.fiek.hapirri.model.Restaurant;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
-import java.util.List;
 
 public class RestaurantViewActivity extends AppCompatActivity {
 
-    AppBarLayout restDetailsImage;
-    TextView restDetailsAddress, restDetailsDescription;
-    GridView galleryGridView;
-    Button goToMenu;
-    FloatingActionButton fab;
-    String restId, restName;
+    private AppBarLayout restDetailsImage;
+    private TextView restDetailsAddress, restDetailsDescription;
+    private GridView galleryGridView;
+    private Button goToMenu;
+    private Button goToLocationButton;
+    private FloatingActionButton fab;
+
+    Restaurant restaurant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,43 +52,44 @@ public class RestaurantViewActivity extends AppCompatActivity {
             }
         });
 
-        //Gets bundle extras from intent and sets images to gallery
+        //Gets restaurant object from intent
         manageExtras();
+
         goToMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
-                intent.putExtra("restId", restId);
-                intent.putExtra("restName", restName);
+                intent.putExtra("restaurant", restaurant);
+                startActivity(intent);
+            }
+        });
+
+        goToLocationButton = findViewById(R.id.goToLocationButton);
+        goToLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                intent.putExtra("restaurant", restaurant);
                 startActivity(intent);
             }
         });
     }
 
     public void manageExtras(){
-        Bundle extras = getIntent().getExtras();
-        if (extras != null){
-            restId = extras.getString("id");
-            restName = extras.getString("restName");
-            String description = extras.getString("description");
-            String address = extras.getString("address");
-            String image = extras.getString("image");
-            List<Item> menu = extras.getParcelableArrayList("menu");
-            List<String> gallery = extras.getStringArrayList("gallery");
+        restaurant = getIntent().getParcelableExtra("restaurant");
 
-            restDetailsDescription.setText(description);
-            restDetailsAddress.setText(address);
-            GalleryAdapter galleryAdapter = new GalleryAdapter(RestaurantViewActivity.this, gallery);
-            if (gallery != null){
-                galleryGridView.setAdapter(galleryAdapter);
-            }else{
-                galleryGridView.setVisibility(View.GONE);
-            }
-            setImage(image);
+        restDetailsDescription.setText(restaurant.getDescription());
+        restDetailsAddress.setText(restaurant.getAddress());
+        if (restaurant.getGallery() != null){
+            GalleryAdapter galleryAdapter = new GalleryAdapter(RestaurantViewActivity.this, restaurant.getGallery());
+            galleryGridView.setAdapter(galleryAdapter);
+        }else{
+            galleryGridView.setVisibility(View.GONE);
         }
-
-
+        setImage(restaurant.getImage());
     }
+
+    //Sets the restaurant logo image as a BACKGROUND image(less code for ImageView)
     public void setImage(String image){
         Picasso.get().load(Uri.parse(image)).into(new Target(){
             @Override
@@ -97,12 +99,12 @@ public class RestaurantViewActivity extends AppCompatActivity {
 
             @Override
             public void onBitmapFailed(Exception e, Drawable errorDrawable) {
-                Log.d("TAG", "FAILED");
+                Toast.makeText(RestaurantViewActivity.this, "Could not load image!", Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onPrepareLoad(final Drawable placeHolderDrawable) {
-                Log.d("TAG", "Prepare Load");
+                Toast.makeText(RestaurantViewActivity.this, "Loading image!", Toast.LENGTH_LONG).show();
             }
         });
     }

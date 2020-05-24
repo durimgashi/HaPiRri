@@ -74,7 +74,6 @@ public class Item implements Parcelable {
         this.itemType = itemType;
     }
 
-
     @Override
     public int describeContents() {
         return 0;
