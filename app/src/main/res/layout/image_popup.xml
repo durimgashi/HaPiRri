@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="25dp">
+
+    <ImageView
+        android:layout_centerInParent="true"
+        android:id="@+id/popupImage"
+        android:layout_width="270dp"
+        android:layout_height="270dp"
+        android:contentDescription="@string/image_popup"
+        android:src="@drawable/pain"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</RelativeLayout>

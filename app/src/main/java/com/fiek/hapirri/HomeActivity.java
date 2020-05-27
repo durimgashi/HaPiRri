@@ -6,10 +6,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+<<<<<<< Updated upstream
 import android.os.Parcelable;
 
 import com.fiek.hapirri.adapters.RestaurantAdapter;
 import com.fiek.hapirri.model.Item;
+=======
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.widget.Toast;
+
+import com.fiek.hapirri.adapters.RestaurantAdapter;
+import com.fiek.hapirri.constants.Constants;
+>>>>>>> Stashed changes
 import com.fiek.hapirri.model.Restaurant;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.CollectionReference;
@@ -22,7 +31,7 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity implements RestaurantAdapter.OnItemClickListener {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference restaurantRef = db.collection("restaurant");
+    private CollectionReference restaurantRef = db.collection(Constants.COLLECTION_RESTAURANT);
     private RestaurantAdapter adapter;
 
     @Override

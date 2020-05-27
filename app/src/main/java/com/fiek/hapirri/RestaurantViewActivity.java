@@ -39,7 +39,17 @@ public class RestaurantViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_view);
 
+<<<<<<< Updated upstream
         FloatingActionButton fab = findViewById(R.id.fab);
+=======
+        restDetailsImage = findViewById(R.id.restDetailsImage);
+        restDetailsAddress = findViewById(R.id.restDetailsAddress);
+        restDetailsDescription = findViewById(R.id.restDetailsDescription);
+        galleryGridView = findViewById(R.id.galleryGridView);
+        goToMenu = findViewById(R.id.goToMenuButton);
+
+        fab = findViewById(R.id.fab);
+>>>>>>> Stashed changes
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,6 +62,7 @@ public class RestaurantViewActivity extends AppCompatActivity {
         restDetailsAddress = findViewById(R.id.restDetailsAddress);
         restDetailsDescription = findViewById(R.id.restDetailsDescription);
 
+<<<<<<< Updated upstream
         Bundle extras = getIntent().getExtras();
 
         if (extras != null){
@@ -60,6 +71,27 @@ public class RestaurantViewActivity extends AppCompatActivity {
             String description = extras.getString("description");
             String address = extras.getString("address");
             String image = extras.getString("image");
+=======
+        goToMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+            intent.putExtra("restaurant", restaurant);
+            startActivity(intent);
+            }
+        });
+
+        goToLocationButton = findViewById(R.id.goToLocationButton);
+        goToLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+            intent.putExtra("restaurant", restaurant);
+            startActivity(intent);
+            }
+        });
+    }
+>>>>>>> Stashed changes
 
            List<Item> menu = extras.getParcelableArrayList("menu");
 

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fiek.hapirri.model.User;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -27,6 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+<<<<<<< Updated upstream
 
     TextView redirectLogin;
 
@@ -46,6 +49,16 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView registerImageView;
 
+=======
+    private TextView redirectLogin;
+    private EditText firstNameReg;
+    private EditText lastNameReg;
+    private EditText ageReg;
+    private EditText usernameReg;
+    private EditText emailReg;
+    private EditText passwordReg;
+    private SignInButton googleButton;
+>>>>>>> Stashed changes
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
@@ -53,8 +66,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+<<<<<<< Updated upstream
 //        registerImageView = findViewById(R.id.registerImageView);
 //        Picasso.get().load("https://firebasestorage.googleapis.com/v0/b/hapirri-6970c.appspot.com/o/restImages%2Fgizigrill.jpg?alt=media&token=d9ebe396-904c-4714-bda3-0b8fac763890").into(registerImageView);
+=======
+        initializeGoogleButton();
+>>>>>>> Stashed changes
 
         firstNameReg = findViewById(R.id.firstNameReg);
         lastNameReg = findViewById(R.id.lastNameReg);
@@ -111,5 +128,22 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    public void initializeGoogleButton(){
+        googleButton = findViewById(R.id.google_button);
+
+        for (int i = 0; i < googleButton.getChildCount(); i++) {
+            View v = googleButton.getChildAt(i);
+
+            if (v instanceof TextView) {
+                TextView tv = (TextView) v;
+                tv.setTextSize(15);
+                tv.setTypeface(null, Typeface.NORMAL);
+                tv.setText("SIGN UP WITH GOOGLE");
+                tv.setSingleLine(true);
+                tv.setPadding(15, 15, 15, 15);
+            }
+        }
     }
 }

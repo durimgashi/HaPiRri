@@ -29,6 +29,13 @@ public class Restaurant implements Parcelable {
         menu = in.createTypedArrayList(Item.CREATOR);
         image = in.readString();
         description = in.readString();
+<<<<<<< Updated upstream
+=======
+        gallery = in.createStringArrayList();
+        Double lat = in.readDouble();
+        Double lng = in.readDouble();
+        location = new GeoPoint(lat, lng);
+>>>>>>> Stashed changes
     }
 
     public static final Creator<Restaurant> CREATOR = new Creator<Restaurant>() {
