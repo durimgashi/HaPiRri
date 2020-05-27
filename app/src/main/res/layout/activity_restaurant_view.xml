@@ -99,10 +99,7 @@
                 android:background="@drawable/button"
                 android:textColor="@color/white"/>
         </LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
-
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="129dp"
@@ -114,5 +111,5 @@
         app:layout_anchorGravity="bottom|end"
         app:maxImageSize="40dp"
         app:srcCompat="@drawable/ic_favorite_empty" />
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
