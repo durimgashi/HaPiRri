@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/loginImageView"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="180dp"
         android:src="@drawable/hapirri_logo"
         tools:layout_editor_absoluteX="20dp"
         tools:layout_editor_absoluteY="100dp" />
@@ -41,18 +41,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:background="@drawable/button"
         android:text="@string/log_in"
+        android:background="@color/twitterBlue"
+        android:layout_marginHorizontal="4dp"
         android:textColor="@color/white"
-        android:textSize="17sp"
+        android:textSize="15sp"
         app:layout_constraintTop_toBottomOf="@+id/password"
         tools:layout_editor_absoluteX="24dp"
         android:onClick="loadUser"/>
 
-    <RelativeLayout
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/google_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton">
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+
+
+    <RelativeLayout
+        android:layout_marginHorizontal="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/google_button">
         <TextView
             android:id="@+id/alreadyamember"
             android:layout_width="wrap_content"
@@ -72,16 +83,5 @@
             android:text="@string/sign_up"
             tools:layout_editor_absoluteX="20dp"
             android:textSize="15sp"/>
-
-        <TextView
-            android:layout_below="@+id/redirectRegister"
-            android:id="@+id/loggedInAs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginHorizontal="3dp"
-            android:textColor="@color/twitterBlue"
-            tools:layout_editor_absoluteX="20dp"
-            android:textSize="20sp"/>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

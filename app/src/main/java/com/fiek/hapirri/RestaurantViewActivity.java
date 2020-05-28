@@ -42,7 +42,6 @@ public class RestaurantViewActivity extends AppCompatActivity {
         galleryGridView = findViewById(R.id.galleryGridView);
         goToMenu = findViewById(R.id.goToMenuButton);
 
-
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,9 +57,9 @@ public class RestaurantViewActivity extends AppCompatActivity {
         goToMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
-                intent.putExtra("restaurant", restaurant);
-                startActivity(intent);
+            Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+            intent.putExtra("restaurant", restaurant);
+            startActivity(intent);
             }
         });
 
@@ -68,9 +67,9 @@ public class RestaurantViewActivity extends AppCompatActivity {
         goToLocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
-                intent.putExtra("restaurant", restaurant);
-                startActivity(intent);
+            Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+            intent.putExtra("restaurant", restaurant);
+            startActivity(intent);
             }
         });
     }

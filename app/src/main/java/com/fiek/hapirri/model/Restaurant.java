@@ -47,7 +47,6 @@ public class Restaurant implements Parcelable {
         image = in.readString();
         description = in.readString();
         gallery = in.createStringArrayList();
-        //Yeahhh bitch, MAGNETS
         Double lat = in.readDouble();
         Double lng = in.readDouble();
         location = new GeoPoint(lat, lng);

@@ -52,7 +52,6 @@ public class GalleryAdapter extends BaseAdapter {
                     showPopupImage(position);
                 }
             });
-
         }
         return convertView;
     }

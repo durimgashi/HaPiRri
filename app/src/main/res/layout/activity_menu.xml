@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_gravity="center"
     tools:context=".MenuActivity">
-    <androidx.recyclerview.widget.RecyclerView
+
+    <GridView
+        android:id="@+id/menuGridView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/menuRecyclerView"/>
+        android:layout_height="785dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="100dp"
+        android:columnWidth="220dp"
+        android:gravity="center"
+        android:horizontalSpacing="5dp"
+        android:numColumns="2"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dp" />
+
 </LinearLayout>

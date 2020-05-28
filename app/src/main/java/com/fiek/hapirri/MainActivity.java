@@ -3,6 +3,7 @@ package com.fiek.hapirri;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,24 +11,28 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.fiek.hapirri.model.User;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
-    TextView redirectLogin;
-    EditText firstNameReg;
-    EditText lastNameReg;
-    EditText ageReg;
-    EditText usernameReg;
-    EditText emailReg;
-    EditText passwordReg;
+    private TextView redirectLogin;
+    private EditText firstNameReg;
+    private EditText lastNameReg;
+    private EditText ageReg;
+    private EditText usernameReg;
+    private EditText emailReg;
+    private EditText passwordReg;
+    private SignInButton googleButton;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        initializeGoogleButton();
 
         firstNameReg = findViewById(R.id.firstNameReg);
         lastNameReg = findViewById(R.id.lastNameReg);
@@ -44,6 +49,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        Button skipBtn = findViewById(R.id.skipBtn);
+        skipBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, HomeActivity.class));
             }
         });
     }
@@ -73,5 +86,22 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "ERROR", Toast.LENGTH_LONG).show();
                 }
             });
+    }
+
+    public void initializeGoogleButton(){
+        googleButton = findViewById(R.id.google_button);
+
+        for (int i = 0; i < googleButton.getChildCount(); i++) {
+            View v = googleButton.getChildAt(i);
+
+            if (v instanceof TextView) {
+                TextView tv = (TextView) v;
+                tv.setTextSize(15);
+                tv.setTypeface(null, Typeface.NORMAL);
+                tv.setText("SIGN UP WITH GOOGLE");
+                tv.setSingleLine(true);
+                tv.setPadding(15, 15, 15, 15);
+            }
+        }
     }
 }
