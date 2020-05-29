@@ -13,15 +13,18 @@ import com.fiek.hapirri.adapters.RestaurantAdapter;
 import com.fiek.hapirri.constants.Constants;
 import com.fiek.hapirri.model.Restaurant;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 public class HomeActivity extends AppCompatActivity implements RestaurantAdapter.OnItemClickListener {
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference restaurantRef = db.collection(Constants.COLLECTION_RESTAURANT);
     private RestaurantAdapter adapter;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private CollectionReference restaurantRef = db.collection(Constants.COLLECTION_RESTAURANT);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "539387302035-8cc89o4kj9tjsfdm4vcrfhh1iok96jqo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fiek.hapirri",
+            "certificate_hash": "5250bad6cd620bd787590d87f8d2fddcaf26cba3"
+          }
+        },
+        {
           "client_id": "539387302035-kvpatje0e54dos67bm869g67vat9iqpd.apps.googleusercontent.com",
           "client_type": 3
         }
