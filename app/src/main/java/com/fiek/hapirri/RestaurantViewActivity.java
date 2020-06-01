@@ -13,10 +13,16 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.fiek.hapirri.adapters.GalleryAdapter;
+import com.fiek.hapirri.constants.Constants;
 import com.fiek.hapirri.model.Restaurant;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -30,6 +36,12 @@ public class RestaurantViewActivity extends AppCompatActivity {
     private FloatingActionButton fab;
 
     Restaurant restaurant;
+
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
+    FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
+    DocumentReference ref = rootRef.collection(Constants.COLLECTION_USER).document(firebaseUser.getUid());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +58,9 @@ public class RestaurantViewActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Restaurant added to favorites", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            ref.update("favs", FieldValue.arrayUnion(restaurant.getRestName()));
+            Snackbar.make(view, "Restaurant added to favorites", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
             }
         });
 

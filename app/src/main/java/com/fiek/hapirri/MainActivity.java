@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                                 if (task.isSuccessful()){
                                     //Saving user to collection
                                     userId = firebaseAuth.getCurrentUser().getUid();
-                                    User user = new User(firstName, lastName, age,  username, firebaseAuth.getCurrentUser().getEmail());
+                                    User user = new User(firstName, lastName, age,  username, firebaseAuth.getCurrentUser().getEmail(), null);
                                     saveUserToFirestore(user, userId);
 
 
@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
                     FirebaseUser user = firebaseAuth.getCurrentUser();
                     GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
 
-                    User googleUser = new User(account.getGivenName(), account.getFamilyName(), null, account.getDisplayName(),account.getEmail());
+                    User googleUser = new User(account.getGivenName(), account.getFamilyName(), null, account.getDisplayName(),account.getEmail(), null);
                     saveUserToFirestore(googleUser, user.getUid());
 
                     startActivity(new Intent(getApplicationContext(), WelcomeActivity.class));

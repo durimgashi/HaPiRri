@@ -1,5 +1,7 @@
 package com.fiek.hapirri.model;
 
+import java.util.List;
+
 public class User {
 
     private String firstName;
@@ -7,17 +9,18 @@ public class User {
     private Integer age;
     private String username;
     private String email;
+    private List<String> favs;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, Integer age, String username, String email) {
+    public User(String firstName, String lastName, Integer age, String username, String email, List<String> favs) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.username = username;
         this.email = email;
-
+        this.favs = favs;
     }
 
     public String getFirstName() {
@@ -60,4 +63,11 @@ public class User {
         this.email = email;
     }
 
+    public List<String> getFavs() {
+        return favs;
+    }
+
+    public void setFavs(List<String> favs) {
+        this.favs = favs;
+    }
 }
