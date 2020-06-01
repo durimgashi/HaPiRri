@@ -13,9 +13,6 @@ import com.fiek.hapirri.adapters.RestaurantAdapter;
 import com.fiek.hapirri.constants.Constants;
 import com.fiek.hapirri.model.Restaurant;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -29,7 +26,7 @@ public class HomeActivity extends AppCompatActivity implements RestaurantAdapter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.home);
         setUpRecyclerView();
     }
 
@@ -60,6 +57,7 @@ public class HomeActivity extends AppCompatActivity implements RestaurantAdapter
 
             Intent intent = new Intent(getApplicationContext(), RestaurantViewActivity.class);
             intent.putExtra("restaurant", restaurant);
+            intent.putExtra("restId", documentSnapshot.getId());
             startActivity(intent);
             }
         });

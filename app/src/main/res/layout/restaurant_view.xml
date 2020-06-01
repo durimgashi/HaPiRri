@@ -42,7 +42,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context=".MenuActivity"
-        tools:showIn="@layout/activity_restaurant_view">
+        tools:showIn="@layout/restaurant_view">
 
         <LinearLayout
             android:layout_width="match_parent"

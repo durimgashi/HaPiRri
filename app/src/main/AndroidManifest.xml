@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
+        <activity android:name=".ProfileActivity">
+
+        </activity>
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -24,9 +27,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".WelcomeActivity">
-
-        </activity>
+        <activity android:name=".WelcomeActivity" />
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
@@ -35,9 +36,7 @@
             android:label="Menu"
             android:theme="@style/AppThemeSearchBar" />
         <activity android:name=".RestaurantViewActivity" />
-        <activity android:name=".HomeActivity">
-
-        </activity>
+        <activity android:name=".HomeActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
