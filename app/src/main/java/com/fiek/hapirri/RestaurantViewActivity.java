@@ -150,7 +150,7 @@ public class RestaurantViewActivity extends AppCompatActivity {
                     if (document != null) {
                         User user = document.toObject(User.class);
                         List<String> favs = user.getFavs();
-                        if (favs.contains(getIntent().getExtras().getString("restId"))){
+                        if (favs != null && favs.contains(getIntent().getExtras().getString("restId"))){
                             fab.setImageResource(R.drawable.ic_favorite_black_24dp);
                             isFav = true;
                         }else{

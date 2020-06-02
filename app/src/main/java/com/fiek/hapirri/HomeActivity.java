@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.widget.Toast;
-
 import com.fiek.hapirri.adapters.RestaurantAdapter;
 import com.fiek.hapirri.constants.Constants;
 import com.fiek.hapirri.model.Restaurant;

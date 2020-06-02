@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         if (firebaseAuth.getCurrentUser() != null){
-            startActivity(new Intent(MainActivity.this, WelcomeActivity.class));
+            startActivity(new Intent(MainActivity.this, WelcActivity.class));
             finish();
         }
 
@@ -123,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
                                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                                 }else{
                                     Toast.makeText(MainActivity.this, "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-
                                 }
                             }
                 });
@@ -180,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
             firebaseGoogleAuth(acc);
         }catch (ApiException e){
             Toast.makeText(getApplicationContext(), "Google sign in failed " + e.getMessage(), Toast.LENGTH_LONG).show();
-            Log.d("FUCK", "handleSignInResult: " + e.getMessage());
+            Log.d("FUCK", "handleSignInResult: " + completedTask.getException());
         }
     }
 
@@ -197,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
                     User googleUser = new User(account.getGivenName(), account.getFamilyName(), null, account.getDisplayName(),account.getEmail(), null);
                     saveUserToFirestore(googleUser, user.getUid());
 
-                    startActivity(new Intent(getApplicationContext(), WelcomeActivity.class));
+                    startActivity(new Intent(getApplicationContext(), WelcActivity.class));
                 }else{
                     Toast.makeText(getApplicationContext(), "FAIL", Toast.LENGTH_SHORT).show();
                 }

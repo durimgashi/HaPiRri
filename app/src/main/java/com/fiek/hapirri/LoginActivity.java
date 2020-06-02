@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -66,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Toast.makeText(LoginActivity.this, "Login succesful", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), WelcomeActivity.class));
+                            startActivity(new Intent(getApplicationContext(), WelcActivity.class));
                         } else {
                             Toast.makeText(LoginActivity.this, "Error" + task.getException().getMessage() , Toast.LENGTH_SHORT).show();
                         }

@@ -2,7 +2,6 @@ package com.fiek.hapirri;
 
 import androidx.fragment.app.FragmentActivity;
 import android.os.Bundle;
-
 import com.fiek.hapirri.model.Restaurant;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;

@@ -148,4 +148,7 @@
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="title_activity_profile_view">ProfileView</string>
+    <string name="title_activity_welc">WelcActivity</string>
+    <string name="rand_email">email@gmail.com</string>
+    <string name="explore_places_to_eat">Explore places to eat</string>
 </resources>
