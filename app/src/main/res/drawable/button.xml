@@ -3,4 +3,5 @@
     <corners
         android:radius="14dp" />
     <solid android:color="@color/twitterBlue"/>
+    <stroke android:color="@color/white" android:width="1dp"/>
 </shape>
