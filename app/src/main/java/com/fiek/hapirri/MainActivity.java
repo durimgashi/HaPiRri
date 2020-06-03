@@ -119,7 +119,6 @@ public class MainActivity extends AppCompatActivity {
                                     User user = new User(firstName, lastName, age,  username, firebaseAuth.getCurrentUser().getEmail(), null);
                                     saveUserToFirestore(user, userId);
 
-
                                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                                 }else{
                                     Toast.makeText(MainActivity.this, "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

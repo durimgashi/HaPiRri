@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/welcome"
+        android:fontFamily="sans-serif-light"
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/goHome"
         app:layout_constraintEnd_toEndOf="parent"

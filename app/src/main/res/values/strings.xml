@@ -151,4 +151,6 @@
     <string name="title_activity_welc">WelcActivity</string>
     <string name="rand_email">email@gmail.com</string>
     <string name="explore_places_to_eat">Explore places to eat</string>
+    <string name="prishtina_kosovo">Prishtina, Kosovo</string>
+    <string name="menu_profile">Profile</string>
 </resources>
