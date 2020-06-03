@@ -18,6 +18,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp">
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileImage"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_margin="9dp"
@@ -25,7 +26,7 @@
                 android:src="@mipmap/profile_default"/>
         </RelativeLayout>
         <TextView
-            android:id="@+id/tv_name"
+            android:id="@+id/fullName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imgUser"
@@ -36,25 +37,16 @@
             android:textColor="@color/white"
             android:textSize="32sp" />
         <TextView
-            android:id="@+id/tv_address"
+            android:id="@+id/address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_name"
+            android:layout_below="@+id/fullName"
             android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif"
             android:text="@string/prishtina_kosovo"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="14sp" />
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="15dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_photo_camera" />
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -79,6 +71,7 @@
                 android:textSize="13sp" />
 
             <TextView
+                android:id="@+id/profileEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-light"
@@ -101,14 +94,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Phone"
+                android:text="@string/username_hint"
                 android:textColor="@color/twitterBlue"
                 android:textSize="13sp" />
             <TextView
+                android:id="@+id/profileUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-light"
-                android:text="+1-202-555-0157"
+                android:text="durimgashi97"
                 android:textColor="#000000"
                 android:textSize="18sp" />
             <View
@@ -117,53 +111,10 @@
                 android:layout_marginTop="15dp"
                 android:background="@color/twitterBlue" />
         </LinearLayout>
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/favsRecyclerView"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Twitter"
-                android:textColor="@color/twitterBlue"
-                android:textSize="13sp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-light"
-                android:text="durimgashi"
-                android:textColor="#000000"
-                android:textSize="18sp" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="15dp"
-                android:background="@color/twitterBlue" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Facebook"
-                android:textColor="@color/twitterBlue"
-                android:textSize="13sp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-light"
-                android:text="facebook.com/durimgashi"
-                android:textColor="#000000"
-                android:textSize="18sp" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="15dp"
-                android:background="@color/twitterBlue" />
-        </LinearLayout>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 </RelativeLayout>
