@@ -1,4 +1,4 @@
-package com.fiek.hapirri.ui.home;
+package com.fiek.hapirri.ui.welcome;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,14 +16,14 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class HomeFragment extends Fragment {
+public class WelcomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+    private WelcomeViewModel welcomeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
         ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        welcomeViewModel = ViewModelProviders.of(this).get(WelcomeViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_welcome, container, false);
 
         Button goHome = root.findViewById(R.id.goHome);
 

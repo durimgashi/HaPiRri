@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "539387302035",
+    "firebase_url": "https://hapirri-6970c.firebaseio.com",
+    "project_id": "hapirri-6970c",
+    "storage_bucket": "hapirri-6970c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:539387302035:android:627bdfc823167d1f77fd66",
+        "android_client_info": {
+          "package_name": "com.fiek.hapirri"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "539387302035-3fsa5he695l75gme9usd7uo6fg2vke0j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fiek.hapirri",
+            "certificate_hash": "5250bad6cd620bd787590d87f8d2fddcaf26cba3"
+          }
+        },
+        {
+          "client_id": "539387302035-jr38v3bru76mqrfhrg9e8lon3931hk33.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fiek.hapirri",
+            "certificate_hash": "89b6b6cf0b2b03a7ddd0558a9c6836985b380cf2"
+          }
+        },
+        {
+          "client_id": "539387302035-kvpatje0e54dos67bm869g67vat9iqpd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQrvvu7qgT2xa3K25Y8fRDacd0klb3-eM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "539387302035-kvpatje0e54dos67bm869g67vat9iqpd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
