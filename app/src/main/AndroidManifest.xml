@@ -16,11 +16,13 @@
         android:theme="@style/AppTheme"
         tools:targetApi="n">
         <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".WelcActivity"
             android:label="@string/title_activity_welc"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <uses-library
             android:name="org.apache.http.legacy"

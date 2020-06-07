@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HaPiRri</string>
+    <string name="first_name_hint">Emri</string>
+    <string name="last_name_hint">Mbiemri</string>
+    <string name="username_hint">Përdoruesi</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Fjalëkalimi</string>
+    <string name="register_button">Regjistrohu</string>
+    <string name="already_a_member">Keni llogari?</string>
+    <string name="already_a_member_login">Kycu</string>
+    <string name="age_hint">Mosha</string>
+    <string name="alerady_have_an_account">S\'keni llogari?</string>
+    <string name="sign_up">Regjistrohu</string>
+    <string name="log_in">Kycu</string>
+    <string name="logo_of_the_app">Logo e applikacionit</string>
+    <string name="view_menu">Shfleto menynë</string>
+    <string name="view_details">Shiko detajet</string>
+    <string name="go_to_menu">Shko tek menyja</string>
+    <string name="view_on_maps">Gjeje në hartë</string>
+    <string name="favourite_button">Buttoni për favorit</string>
+    <string name="profile_pic">Imazhi i profilit</string>
+    <string name="action_settings">Opsionet</string>
+    <string name="menu_home">Faqja kryesore</string>
+    <string name="menu_gallery">Galeria</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Fjalëkalimi</string>
+    <string name="action_sign_in">Kycu ose regjistrohu</string>
+    <string name="action_sign_in_short">Kycu</string>
+    <string name="welcome">Mirësevini</string>
+    <string name="invalid_username">Pwrdoruesi jo valid</string>
+    <string name="invalid_password">Fjalëkalimi duhet t\'i ketw mw shume se 5 karaktere</string>
+    <string name="login_failed">Kycja dështoj</string>
+    <string name="log_out">Shkycu</string>
+    <string name="explore_places_to_eat">Eksploro vende  për të ngrënë</string>
+    <string name="prishtina_kosovo">Pshtininë, Kosovë</string>
+    <string name="menu_profile">Profili</string>
+    <string name="title_activity_settings">Opsionet</string>
+    <string name="messages_header">Messazhet</string>
+    <string name="signature_title">Nwnshkrimi</string>
+</resources>

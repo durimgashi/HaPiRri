@@ -1,6 +1,7 @@
 package com.fiek.hapirri;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -24,6 +25,8 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import java.util.Locale;
 
 public class WelcActivity extends AppCompatActivity {
 
@@ -71,6 +74,18 @@ public class WelcActivity extends AppCompatActivity {
                 GoogleSignIn.getClient(getApplicationContext(), new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build()).signOut();
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 finish();
+                return true;
+
+            case R.id.action_settings:
+                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+
+//                String languageToLoad  = "sq-rAL"; // your language
+//                Locale locale = new Locale(languageToLoad);
+//                Locale.setDefault(locale);
+//                Configuration config = new Configuration();
+//                config.locale = locale;
+//                getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
                 return true;
         }
         return super.onOptionsItemSelected(item);
