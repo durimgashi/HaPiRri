@@ -66,5 +66,6 @@
     <!-- Messages Preferences -->
     <string name="signature_title">Your signature</string>
     <string name="reply_title" translatable="false">Default reply action</string>
+    <string name="recover">Recover</string>
 
 </resources>

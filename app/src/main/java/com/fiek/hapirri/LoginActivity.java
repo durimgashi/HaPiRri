@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView redirectRegister;
     private SignInButton googleButton;
     private Button loginButton;
+    private TextView redirectForgotPass;
 //    private ProgressBar progressBar;
     private FirebaseAuth firebaseAuth;
 
@@ -82,6 +83,15 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
             }
         });
+
+        redirectForgotPass = findViewById(R.id.redirectForgotPass);
+        redirectForgotPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ForgotPasswordActivity.class);
+                startActivity(intent);
+            }
+        }) ;
     }
 
     public void initializeGoogleButton(){

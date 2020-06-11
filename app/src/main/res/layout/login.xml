@@ -60,28 +60,40 @@
 
 
     <RelativeLayout
-        android:layout_marginHorizontal="4dp"
+        android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/google_button">
+        android:layout_marginHorizontal="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/google_button"
+        tools:layout_editor_absoluteX="24dp">
+
         <TextView
             android:id="@+id/alreadyamember"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/alerady_have_an_account"
-            tools:layout_editor_absoluteX="20dp"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            tools:layout_editor_absoluteX="20dp" />
+
         <TextView
             android:id="@+id/redirectRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginHorizontal="3dp"
-            android:textColor="@color/twitterBlue"
+            android:layout_marginTop="8dp"
             android:layout_toEndOf="@+id/alreadyamember"
             android:text="@string/sign_up"
-            tools:layout_editor_absoluteX="20dp"
-            android:textSize="15sp"/>
+            android:textColor="@color/twitterBlue"
+            android:textSize="15sp"
+            tools:layout_editor_absoluteX="20dp" />
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/redirectForgotPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -127,12 +127,12 @@ public class RestaurantViewActivity extends AppCompatActivity {
 
             @Override
             public void onBitmapFailed(Exception e, Drawable errorDrawable) {
-                Toast.makeText(RestaurantViewActivity.this, "Could not load image!", Toast.LENGTH_LONG).show();
+//                Toast.makeText(RestaurantViewActivity.this, "Could not load image!", Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onPrepareLoad(final Drawable placeHolderDrawable) {
-                Toast.makeText(RestaurantViewActivity.this, "Loading image!", Toast.LENGTH_LONG).show();
+//                Toast.makeText(RestaurantViewActivity.this, "Loading image!", Toast.LENGTH_LONG).show();
             }
         });
     }
