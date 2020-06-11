@@ -1,4 +1,4 @@
-package com.fiek.hapirri.ui.gallery;
+package com.fiek.hapirri.ui.scanner;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

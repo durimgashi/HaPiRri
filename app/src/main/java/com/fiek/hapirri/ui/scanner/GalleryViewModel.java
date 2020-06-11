@@ -1,4 +1,4 @@
-package com.fiek.hapirri.ui.gallery;
+package com.fiek.hapirri.ui.scanner;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
