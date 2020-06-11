@@ -48,6 +48,8 @@ dependencies {
 //    implementation 'com.google.firebase:firebase-auth:19.3.1' This shit is causing firestore crash
     implementation 'com.google.android.gms:play-services-auth:18.0.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.4'
+    implementation 'com.google.zxing:core:3.2.0'
 
     implementation 'com.google.firebase:firebase-firestore:17.1.0' //Mos e ngucni
 }
