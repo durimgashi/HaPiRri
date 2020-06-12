@@ -39,4 +39,6 @@
     <string name="title_activity_settings">Opsionet</string>
     <string name="messages_header">Messazhet</string>
     <string name="signature_title">Nwnshkrimi</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="verification_email">Verification Email</string>
 </resources>

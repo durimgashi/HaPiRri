@@ -12,7 +12,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class ForgotPasswordActivity extends AppCompatActivity {
+public class ForgotPassword extends AppCompatActivity {
 
     private EditText recoveryEmail;
     private Button btnRecoverPass;
@@ -35,12 +35,12 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    Toast.makeText(ForgotPasswordActivity.this, "Password sent to your Email", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ForgotPassword.this, "Password sent to your Email", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
                     startActivity(intent);
                 }
                 else{
-                    Toast.makeText(ForgotPasswordActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(ForgotPassword.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                 }
                 }
             });

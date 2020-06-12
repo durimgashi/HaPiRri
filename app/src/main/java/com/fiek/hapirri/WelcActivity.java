@@ -78,14 +78,6 @@ public class WelcActivity extends AppCompatActivity {
 
             case R.id.action_settings:
                 startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-
-//                String languageToLoad  = "sq-rAL"; // your language
-//                Locale locale = new Locale(languageToLoad);
-//                Locale.setDefault(locale);
-//                Configuration config = new Configuration();
-//                config.locale = locale;
-//                getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
-
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -104,6 +96,9 @@ public class WelcActivity extends AppCompatActivity {
                 navUsername.setText(account.getDisplayName());
                 navEmail.setText(account.getEmail());
                 Picasso.get().load(Uri.parse(String.valueOf(account.getPhotoUrl()))).into(navProfileImage);
+            } else {
+                navUsername.setText("");
+                navEmail.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
             }
         }
 

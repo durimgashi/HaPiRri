@@ -15,8 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
-        <activity android:name=".ForgotPasswordActivity"></activity>
-        <activity android:name=".ui.QRCode"></activity>
+        <activity android:name=".ForgotPassword"/>
+<!--        <activity android:name=".ui.QRCode"></activity>-->
         <activity android:name=".GenerateQR" />
         <activity
             android:name=".SettingsActivity"
@@ -44,14 +44,14 @@
             android:theme="@style/AppThemeSearchBar" />
         <activity android:name=".RestaurantViewActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"/>
     </application>
 
 </manifest>

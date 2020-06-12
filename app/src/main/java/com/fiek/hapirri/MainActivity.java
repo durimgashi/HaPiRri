@@ -93,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
                 final String username = usernameReg.getText().toString();
                 final Integer age = Integer.parseInt(ageReg.getText().toString());
 
-
                 if (TextUtils.isEmpty(email)){
                     emailReg.setError("Email is empty!");
                     return;
@@ -173,7 +172,6 @@ public class MainActivity extends AppCompatActivity {
     public void handleSignInResult(Task<GoogleSignInAccount> completedTask){
         try {
             GoogleSignInAccount acc = completedTask.getResult(ApiException.class);
-            Toast.makeText(getApplicationContext(), "Google sign in succesful", Toast.LENGTH_SHORT).show();
             assert acc != null;
             firebaseGoogleAuth(acc);
         }catch (ApiException e){
@@ -188,7 +186,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
                     FirebaseUser user = firebaseAuth.getCurrentUser();
                     GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
 

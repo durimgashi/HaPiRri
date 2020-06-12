@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-    android:padding="20dp"
-    android:background="@color/white">
+    android:padding="20dp">
 
     <ImageView
         android:id="@+id/loginImageView"
@@ -47,8 +46,7 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintTop_toBottomOf="@+id/password"
-        tools:layout_editor_absoluteX="24dp"
-        android:onClick="loadUser"/>
+        tools:layout_editor_absoluteX="24dp"/>
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/google_button"
@@ -93,7 +91,8 @@
         android:id="@+id/redirectForgotPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot Password?"
+        android:text="@string/forgot_password"
+        android:textColor="@color/twitterBlue"
         app:layout_constraintStart_toStartOf="@+id/relativeLayout2"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
