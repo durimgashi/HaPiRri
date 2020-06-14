@@ -16,7 +16,6 @@
         android:theme="@style/AppTheme"
         tools:targetApi="n">
         <activity android:name=".ForgotPassword"/>
-<!--        <activity android:name=".ui.QRCode"></activity>-->
         <activity android:name=".GenerateQR" />
         <activity
             android:name=".SettingsActivity"

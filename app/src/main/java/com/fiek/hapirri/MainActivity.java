@@ -77,11 +77,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        if (firebaseAuth.getCurrentUser() != null){
-            startActivity(new Intent(MainActivity.this, WelcActivity.class));
-            finish();
-        }
-
         Button registerButton = findViewById(R.id.registerButton);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override

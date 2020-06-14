@@ -13,6 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileOutputStream;
+
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 import androidmads.library.qrgenearator.QRGSaver;
@@ -54,14 +58,17 @@ public class GenerateQR extends AppCompatActivity {
         saveQR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-                boolean save = new QRGSaver().save(savePath, qrvalue.getText().toString().trim(), bitmap, QRGContents.ImageType.IMAGE_JPEG);
-                String result = save ? "Image Saved" : "Image Not Saved";
-                Toast.makeText(activity, result + qrvalue.getText().toString().trim(), Toast.LENGTH_LONG).show();
-                qrvalue.setText(null);
-            } else {
-                ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
-            }
+                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                    String folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString();
+
+                    boolean save = new QRGSaver().save(String.valueOf(folder), qrvalue.getText().toString().trim(), bitmap, QRGContents.ImageType.IMAGE_JPEG);
+
+                    String result = save ? "Image Saved" : "Image Not Saved";
+                    Toast.makeText(activity, result + qrvalue.getText().toString().trim(), Toast.LENGTH_LONG).show();
+                    qrvalue.setText(null);
+                } else {
+                    ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+                }
             }
         });
     }
