@@ -86,7 +86,7 @@ public class GenerateQR extends AppCompatActivity {
                 if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
 
 
-                    String root = Environment.DIRECTORY_DCIM;
+                    String root = Environment.getExternalStorageDirectory().getPath() + "/QRCode/";
                     File myDir = new File(root);
                     myDir.mkdirs();
                     Random generator = new Random();
