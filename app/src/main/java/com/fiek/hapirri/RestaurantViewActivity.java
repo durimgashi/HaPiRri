@@ -38,7 +38,7 @@ public class RestaurantViewActivity extends AppCompatActivity {
     private AppBarLayout restDetailsImage;
     private TextView restDetailsAddress, restDetailsDescription;
     private GridView galleryGridView;
-    private Button goToMenu, goToLocationButton, generateQR;
+    private Button goToMenu, goToLocationButton, generateQR, gotoReviews;
     private FloatingActionButton fab;
     private Restaurant restaurant;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -88,6 +88,17 @@ public class RestaurantViewActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), GenerateQR.class);
                 startActivity(intent);
+            }
+        });
+
+        gotoReviews = findViewById(R.id.gotoReviews);
+        gotoReviews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), RetrofitJSON.class);
+                startActivity(intent);
+
             }
         });
 

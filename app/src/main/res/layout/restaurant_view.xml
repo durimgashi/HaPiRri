@@ -99,14 +99,25 @@
                 android:background="@drawable/button"
                 android:textColor="@color/white"/>
             <Button
+                android:id="@+id/gotoQR"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="GenerateQR"
-                android:id="@+id/gotoQR"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/button"
                 android:textColor="@color/white"/>
+            <Button
+                android:id="@+id/gotoReviews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View Visitors"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/button"
+                android:textColor="@color/white"/>
+
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
