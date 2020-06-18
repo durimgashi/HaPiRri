@@ -38,7 +38,7 @@ public class RestaurantViewActivity extends AppCompatActivity {
     private AppBarLayout restDetailsImage;
     private TextView restDetailsAddress, restDetailsDescription;
     private GridView galleryGridView;
-    private Button goToMenu, goToLocationButton, generateQR;
+    private Button goToMenu, goToLocationButton, generateQR, gotoReviews, addComment;
     private FloatingActionButton fab;
     private Restaurant restaurant;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -58,6 +58,7 @@ public class RestaurantViewActivity extends AppCompatActivity {
         restDetailsDescription = findViewById(R.id.restDetailsDescription);
         galleryGridView = findViewById(R.id.galleryGridView);
         goToMenu = findViewById(R.id.goToMenuButton);
+        addComment = findViewById(R.id.gotoAddComment);
 
         //Checks if restaurant is in the favorites of the user and sets the right icon
         checkFavs();
@@ -72,6 +73,14 @@ public class RestaurantViewActivity extends AppCompatActivity {
 
         //Gets restaurant object from intent
         manageExtras();
+
+        addComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CommentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         goToMenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +97,17 @@ public class RestaurantViewActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), GenerateQR.class);
                 startActivity(intent);
+            }
+        });
+
+        gotoReviews = findViewById(R.id.gotoReviews);
+        gotoReviews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), RetrofitJSON.class);
+                startActivity(intent);
+
             }
         });
 

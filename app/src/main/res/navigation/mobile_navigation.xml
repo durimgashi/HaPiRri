@@ -33,7 +33,7 @@
         android:id="@+id/nav_gallery"
         android:name="com.fiek.hapirri.ui.scanner.ScannerFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_scanner" />
+        tools:layout="@layout/activity_scanner"/>
 
     <fragment
         android:id="@+id/nav_slideshow"
