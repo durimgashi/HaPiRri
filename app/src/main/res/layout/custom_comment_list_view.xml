@@ -9,40 +9,35 @@
         android:layout_height="match_parent"
         android:id="@+id/linear"
         android:orientation="horizontal"
-        android:weightSum="3"
-        android:padding="20dp"
-        >
+        android:weightSum="7"
+        android:padding="20dp">
 
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:textSize="20sp"
-            android:text="ID"
-            android:id="@+id/txt"
-            />
+            android:text="@string/id"
+            android:id="@+id/txt" />
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:layout_height="match_parent"
             android:textSize="20sp"
-            android:text="Signature"
-            android:id="@+id/signature_txt"
-            />
+            android:layout_gravity="left"
+            android:text="@string/restaurant"
+            android:id="@+id/signature_txt" />
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="4"
+            android:paddingHorizontal="5dp"
             android:layout_height="match_parent"
             android:textSize="20sp"
-            android:text="Comment"
-            android:gravity="right"
-            android:id="@+id/comment_txt"
-            />
-
-
-        ></LinearLayout>
+            android:text="@string/comment"
+            android:gravity="left"
+            android:id="@+id/comment_txt" /></LinearLayout>
 
 
 </RelativeLayout>

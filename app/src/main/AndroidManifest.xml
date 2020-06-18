@@ -21,7 +21,7 @@
         tools:targetApi="n">
         <activity android:name=".CommentActivity">
         </activity>
-        <activity android:name=".RetrofitJSON" />
+        <activity android:name=".retrofit.RetrofitJSON" />
         <activity android:name=".ScannerActivity" />
         <activity android:name=".ForgotPassword" />
         <activity android:name=".GenerateQR" />

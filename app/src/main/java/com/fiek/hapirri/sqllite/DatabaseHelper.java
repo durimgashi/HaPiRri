@@ -1,4 +1,4 @@
-package com.fiek.hapirri;
+package com.fiek.hapirri.sqllite;
 
 import android.content.ContentValues;
 import android.content.Context;

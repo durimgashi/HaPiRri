@@ -10,23 +10,24 @@ import android.widget.Toast;
 
 import com.fiek.hapirri.adapters.CommentAdapter;
 import com.fiek.hapirri.model.Comment;
+import com.fiek.hapirri.model.Restaurant;
+import com.fiek.hapirri.sqllite.DatabaseHelper;
 
 import java.util.ArrayList;
 
 public class CommentActivity extends AppCompatActivity {
 
-    EditText ed1, ed2;
-    DatabaseHelper databaseHelper;
-    ListView listView1;
-    ArrayList<Comment> arrayList;
-    CommentAdapter adapter;
+    private EditText ed2;
+    private DatabaseHelper databaseHelper;
+    private ListView listView1;
+    private ArrayList<Comment> arrayList;
+    private CommentAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
 
-        ed1 = findViewById(R.id.editText);
         ed2 = findViewById(R.id.editText2);
         listView1 = (ListView) findViewById(R.id.listView1);
         databaseHelper = new DatabaseHelper(this);
@@ -42,7 +43,10 @@ public class CommentActivity extends AppCompatActivity {
 
     public void insert(View v)
     {
-        boolean result = databaseHelper.insertData(ed1.getText().toString(),ed2.getText().toString());
+        Restaurant restaurant = getIntent().getParcelableExtra("restaurant");
+
+        assert restaurant != null;
+        boolean result = databaseHelper.insertData(restaurant.getRestName(),ed2.getText().toString());
 
         if (result){
             Toast.makeText(getApplicationContext(),"Comment added",Toast.LENGTH_SHORT).show();

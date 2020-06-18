@@ -38,7 +38,11 @@
     <string name="menu_profile">Profili</string>
     <string name="title_activity_settings">Opsionet</string>
     <string name="messages_header">Messazhet</string>
-    <string name="signature_title">Nwnshkrimi</string>
-    <string name="forgot_password">Forgot Password?</string>
-    <string name="verification_email">Verification Email</string>
+    <string name="signature_title">Nenshkrimi</string>
+    <string name="forgot_password">Keni harruar fjalekalimin?</string>
+    <string name="verification_email">Emaili per verifikim</string>
+    <string name="comment">Komento</string>
+    <string name="restaurant">Restaurant</string>
+    <string name="id">ID</string>
+    <string name="add_comment">Shto komentin</string>
 </resources>

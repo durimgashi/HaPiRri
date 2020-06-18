@@ -1,18 +1,13 @@
-package com.fiek.hapirri;
+package com.fiek.hapirri.retrofit;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import com.fiek.hapirri.interfaces.JsonAPI;
+import com.fiek.hapirri.R;
 import com.fiek.hapirri.model.ReviewModel;
-
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -42,26 +37,17 @@ public class RetrofitJSON extends AppCompatActivity {
                 List<ReviewModel> review = response.body();
 
                 String [] reviewList = new String[review.size()];
-                for(int i=0; i<review.size(); i++)
-                {
+                for(int i=0; i<review.size(); i++) {
                     reviewList[i] = review.get(i).getName();
-
                 }
 
                 listView.setAdapter(
-                        new ArrayAdapter<String>(
-                                getApplicationContext(),
-                                android.R.layout.simple_list_item_1,
-                                reviewList
-                        )
+                    new ArrayAdapter<String>(
+                            getApplicationContext(),
+                            android.R.layout.simple_list_item_1,
+                            reviewList
+                    )
                 );
-
-
-
-                for(ReviewModel r: review){
-
-
-                }
             }
 
             @Override
@@ -69,6 +55,5 @@ public class RetrofitJSON extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-
     }
 }

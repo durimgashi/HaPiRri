@@ -69,5 +69,9 @@
     <string name="recover">Recover</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="verification_email">Verification Email</string>
+    <string name="restaurant">Restaurant</string>
+    <string name="id">ID</string>
+    <string name="add_comment">Add comment</string>
+    <string name="comment">Comment</string>
 
 </resources>

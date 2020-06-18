@@ -13,11 +13,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import com.fiek.hapirri.adapters.GalleryAdapter;
 import com.fiek.hapirri.constants.Constants;
 import com.fiek.hapirri.model.Restaurant;
 import com.fiek.hapirri.model.User;
+import com.fiek.hapirri.retrofit.RetrofitJSON;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.AppBarLayout;
@@ -78,6 +79,7 @@ public class RestaurantViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CommentActivity.class);
+                intent.putExtra("restaurant", restaurant);
                 startActivity(intent);
             }
         });
