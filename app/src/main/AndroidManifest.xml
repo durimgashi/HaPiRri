@@ -19,7 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
-        <activity android:name=".RetrofitJSON"></activity>
+        <activity android:name=".CommentActivity">
+        </activity>
+        <activity android:name=".RetrofitJSON" />
         <activity android:name=".ScannerActivity" />
         <activity android:name=".ForgotPassword" />
         <activity android:name=".GenerateQR" />

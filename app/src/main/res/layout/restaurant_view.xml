@@ -116,6 +116,15 @@
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/button"
                 android:textColor="@color/white"/>
+            <Button
+                android:id="@+id/gotoAddComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add comment"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/button"
+                android:textColor="@color/white"/>
 
 
         </LinearLayout>
