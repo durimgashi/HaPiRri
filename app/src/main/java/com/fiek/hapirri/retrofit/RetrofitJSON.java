@@ -42,7 +42,7 @@ public class RetrofitJSON extends AppCompatActivity {
                 }
 
                 listView.setAdapter(
-                    new ArrayAdapter<String>(
+                    new ArrayAdapter<>(
                             getApplicationContext(),
                             android.R.layout.simple_list_item_1,
                             reviewList

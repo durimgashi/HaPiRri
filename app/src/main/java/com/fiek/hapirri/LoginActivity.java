@@ -3,8 +3,12 @@ package com.fiek.hapirri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -14,7 +18,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.fiek.hapirri.model.User;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -26,7 +29,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 public class LoginActivity extends AppCompatActivity {
@@ -38,8 +40,8 @@ public class LoginActivity extends AppCompatActivity {
     private TextView redirectForgotPass;
     private GoogleSignInClient googleSignInClient;
     private int RC_SIGN_IN = 1;
-//    private ProgressBar progressBar;
     private FirebaseAuth firebaseAuth;
+    ProgressDialog p;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +55,6 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.loginButton);
 
         firebaseAuth = FirebaseAuth.getInstance();
-//        progressBar = findViewById(R.id.progressBar);
 
         if (firebaseAuth.getCurrentUser() != null){
             startActivity(new Intent(LoginActivity.this, WelcActivity.class));
@@ -77,34 +78,8 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String emailStr = email.getText().toString();
-                String passwordStr = password.getText().toString();
-
-                if (TextUtils.isEmpty(emailStr)){
-                    email.setError("Email is empty!");
-                    return;
-                }
-                if (TextUtils.isEmpty(passwordStr)){
-                    password.setError("Email is empty!");
-                }
-                if(password.length() < 6){
-                    password.setError("Password must be at least 6 characters long.");
-                    return;
-                }
-
-//                progressBar.setVisibility(View.VISIBLE);
-
-                firebaseAuth.signInWithEmailAndPassword(emailStr, passwordStr).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            Toast.makeText(LoginActivity.this, "Login succesful", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), WelcActivity.class));
-                        } else {
-                            Toast.makeText(LoginActivity.this, "Error" + task.getException().getMessage() , Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                AsyncTaskExample asyncTask=new AsyncTaskExample();
+                asyncTask.execute();
             }
         });
 
@@ -125,6 +100,35 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }) ;
+    }
+
+    public void login(){
+        String emailStr = email.getText().toString();
+        String passwordStr = password.getText().toString();
+
+        if (TextUtils.isEmpty(emailStr)){
+            email.setError("Email is empty!");
+            return;
+        }
+        if (TextUtils.isEmpty(passwordStr)){
+            password.setError("Email is empty!");
+        }
+        if(password.length() < 6){
+            password.setError("Password must be at least 6 characters long.");
+            return;
+        }
+
+        firebaseAuth.signInWithEmailAndPassword(emailStr, passwordStr).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    Toast.makeText(LoginActivity.this, "Login succesful", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(), WelcActivity.class));
+                } else {
+                    Toast.makeText(LoginActivity.this, "Error" + task.getException().getMessage() , Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     public void initializeGoogleButton(){
@@ -183,9 +187,32 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-
     @Override
     protected void onStart() {
         super.onStart();
     }
+
+    @SuppressLint("StaticFieldLeak")
+    private class AsyncTaskExample extends AsyncTask<String, String, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            p = new ProgressDialog(LoginActivity.this);
+            p.setMessage("Logging in...");
+            p.setIndeterminate(false);
+            p.setCancelable(false);
+            p.show();
+        }
+        @Override
+        protected String doInBackground(String... strings) {
+            login();
+            return "Success";
+        }
+        @Override
+        protected void onPostExecute(String string) {
+            super.onPostExecute(string);
+        }
+    }
+
+
 }
