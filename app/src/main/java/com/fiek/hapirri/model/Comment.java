@@ -2,7 +2,9 @@ package com.fiek.hapirri.model;
 
 public class Comment {
 
-    String id, signature, comment;
+    private String id;
+    private String signature;
+    private String comment;
 
     public Comment(String id, String signature, String comment){
         this.id = id;

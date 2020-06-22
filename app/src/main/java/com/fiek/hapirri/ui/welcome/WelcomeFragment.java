@@ -5,16 +5,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import com.fiek.hapirri.HomeActivity;
 import com.fiek.hapirri.R;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class WelcomeFragment extends Fragment {
 
@@ -26,11 +24,7 @@ public class WelcomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_welcome, container, false);
 
         Button goHome = root.findViewById(R.id.goHome);
-
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();;
-
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(requireActivity().getApplicationContext());
+        ImageView welcomeImage = root.findViewById(R.id.welcomeIcon);
 
         goHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +33,12 @@ public class WelcomeFragment extends Fragment {
             }
         });
 
+        welcomeImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(AnimationUtils.loadAnimation(requireActivity().getApplicationContext(), R.animator.shake));
+            }
+        });
         return root;
     }
 }

@@ -6,10 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.budiyev.android.codescanner.CodeScanner;
 import com.budiyev.android.codescanner.CodeScannerView;
 import com.budiyev.android.codescanner.DecodeCallback;
@@ -20,8 +18,6 @@ import com.karumi.dexter.listener.PermissionDeniedResponse;
 import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
-
-import java.util.Scanner;
 
 public class ScannerActivity extends AppCompatActivity {
 
@@ -89,8 +85,5 @@ public class ScannerActivity extends AppCompatActivity {
         Intent intent = new Intent(this, WelcActivity.class);
         startActivity(intent);
     }
-
-
-
 }
 

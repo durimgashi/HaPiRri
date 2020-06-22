@@ -5,15 +5,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
+import com.fiek.hapirri.constants.Constants;
 import com.fiek.hapirri.model.Comment;
-
 import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper(Context context){
-        super(context, "HaPiRri1.db", null, 1);
+        super(context, Constants.DB_NAME, null, Constants.DB_VERSION);
     }
 
     @Override
@@ -30,8 +29,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean insertData(String signature, String comment){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("SIGNATURE",signature);
-        contentValues.put("COMMENT",comment);
+        contentValues.put(Constants.SIGNATURE,signature);
+        contentValues.put(Constants.COMMENT,comment);
 
         long result = db.insert("COMMENTS", null, contentValues);
 

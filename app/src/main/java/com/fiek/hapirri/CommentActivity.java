@@ -1,18 +1,15 @@
 package com.fiek.hapirri;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.fiek.hapirri.adapters.CommentAdapter;
 import com.fiek.hapirri.model.Comment;
 import com.fiek.hapirri.model.Restaurant;
 import com.fiek.hapirri.sqllite.DatabaseHelper;
-
 import java.util.ArrayList;
 
 public class CommentActivity extends AppCompatActivity {
@@ -41,8 +38,7 @@ public class CommentActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
-    public void insert(View v)
-    {
+    public void insert(View v) {
         Restaurant restaurant = getIntent().getParcelableExtra("restaurant");
 
         assert restaurant != null;
@@ -51,8 +47,8 @@ public class CommentActivity extends AppCompatActivity {
         if (result){
             Toast.makeText(getApplicationContext(),"Comment added",Toast.LENGTH_SHORT).show();
             loadDataInListView();
-        }
-        else
+        } else{
             Toast.makeText(getApplicationContext(),"Failed to save comment",Toast.LENGTH_SHORT).show();
+        }
     }
 }

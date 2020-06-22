@@ -6,10 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
 import com.fiek.hapirri.model.Comment;
 import com.fiek.hapirri.R;
-
 import java.util.ArrayList;
 
 public class CommentAdapter extends BaseAdapter {

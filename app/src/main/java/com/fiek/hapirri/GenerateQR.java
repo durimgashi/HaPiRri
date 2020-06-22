@@ -3,41 +3,24 @@ package com.fiek.hapirri;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
 import android.Manifest;
-import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-import com.google.zxing.WriterException;
-
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.util.Random;
-
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
-import androidmads.library.qrgenearator.QRGSaver;
-
-
-
 
 public class GenerateQR extends AppCompatActivity {
 
-    //Context mContext = this;
     EditText qrvalue;
     Button generateQRcode, saveQR;
     ImageView qrImage;
@@ -46,11 +29,9 @@ public class GenerateQR extends AppCompatActivity {
     private AppCompatActivity activity = this;
     private static final int PERMISSION_ALL = 1;
     private static String[] PERMISSIONS = {
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,12 +61,7 @@ public class GenerateQR extends AppCompatActivity {
         findViewById(R.id.saveQR).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                // int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-
                 if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-
-
                     String root = Environment.getExternalStorageDirectory().getPath() + "/QRCode/";
                     File myDir = new File(root);
                     myDir.mkdirs();
@@ -110,7 +86,5 @@ public class GenerateQR extends AppCompatActivity {
                 }
             }
         });
-
-
     }
 }

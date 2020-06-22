@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
-
 import com.fiek.hapirri.adapters.GalleryAdapter;
 import com.fiek.hapirri.constants.Constants;
 import com.fiek.hapirri.model.Restaurant;
@@ -61,7 +60,6 @@ public class RestaurantViewActivity extends AppCompatActivity {
         goToMenu = findViewById(R.id.goToMenuButton);
         addComment = findViewById(R.id.gotoAddComment);
 
-        //Checks if restaurant is in the favorites of the user and sets the right icon
         checkFavs();
 
         fab = findViewById(R.id.fab);
@@ -72,7 +70,6 @@ public class RestaurantViewActivity extends AppCompatActivity {
             }
         });
 
-        //Gets restaurant object from intent
         manageExtras();
 
         addComment.setOnClickListener(new View.OnClickListener() {
